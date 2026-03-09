@@ -112,8 +112,10 @@ export const FinanceProvider = ({
     const clearData = () => {
         localStorage.removeItem("financeData");
         localStorage.removeItem("transactions");
+        localStorage.removeItem("budgetLimit");
 
         setFinanceDataState(null);
+        setBudgetLimit(0)
         setTransactions([]);
 
         setOpenModal(true);

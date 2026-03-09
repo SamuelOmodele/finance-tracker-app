@@ -30,7 +30,7 @@ const BudgetPage = () => {
                 
                 <div className='col-span-6 grid grid-cols-2 gap-3'>
                     <StatCard color='#6DD385' name='Budget limit' amount={budgetLimit} icon={CircleDollarSign} />
-                    <StatCard color='#2868FF' name='Remaining' amount={budgetLimit - totalExpenses} icon={Info} />
+                    <StatCard color='#2868FF' name='Remaining' amount={(budgetLimit - totalExpenses) < 0 ? 0 : budgetLimit - totalExpenses} icon={Info} />
 
                     <div className='col-span-full bg-white p-4 rounded-[20px] border border-gray-200 h-25 flex flex-col gap-3'>
                         <p className='text-xs uppercase mb-1'>Budget Progress</p>
