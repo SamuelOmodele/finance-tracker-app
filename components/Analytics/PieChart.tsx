@@ -25,9 +25,9 @@ type PieLabelProps = {
 
 export default function AnalyticsPieChart({ data }: Props) {
 
-  const renderCustomizedLabel = ({ value }: PieLabelProps) => {
-    const total = data.reduce((sum, item) => sum + item.value, 0);
+  const total = data.reduce((sum, item) => sum + item.value, 0);
 
+  const renderCustomizedLabel = ({ value }: PieLabelProps) => {
     if (!value || total === 0) return "0%";
 
     const percentValue = (value / total) * 100;
@@ -37,6 +37,14 @@ export default function AnalyticsPieChart({ data }: Props) {
 
     return `${percent}%`;
   };
+
+  if (total === 0) {
+    return (
+      <div className="text-center w-full h-75 flex items-center justify-center text-gray-400 text-sm">
+        No Data. <br /> You haven&apos;t made any transactions yet
+      </div>
+    );
+  }
 
   return (
     <div className="w-full h-75 text-sm">
