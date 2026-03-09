@@ -60,8 +60,8 @@ const SetFinanceDataModal = ({ openModal, setOpenModal }: TModalProps) => {
                 <DialogTitle className="hidden"></DialogTitle>
 
                 <div className=''>
-                    <div className='space-y-2'>
-                        <h1 className='font-semibold text-[20px] text-[#353535] text-center'>Welcome to <span className='text-[#2868FF]'>FinanceTrack</span></h1>
+                    <div className='space-y-2 mt-2'>
+                        <h1 className='font-semibold text-[24px] text-[#353535] text-center'>Welcome to <span className='text-[#2868FF]'>FinanceTrack</span></h1>
                         <p className='text-[#777] text-center text-sm'>Please fill in your information below</p>
                     </div>
 
@@ -80,7 +80,7 @@ const SetFinanceDataModal = ({ openModal, setOpenModal }: TModalProps) => {
                                         <FormControl>
                                             <Input
                                                 className="h-11.25 shadow-none rounded-[5px] text-[#001413] border border-[#CAC9D9] placeholder:text-[#9C9C9C]"
-                                                placeholder="Enter your first name"
+                                                placeholder="Enter your name"
                                                 {...field}
                                             />
                                         </FormControl>
