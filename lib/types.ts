@@ -8,7 +8,10 @@ export type TSidebarData = {
     icon: ForwardRefExoticComponent<Omit<LucideProps, "ref">>
 }
 
-export type TChartData = {
-    name: string;
-    value: number;
+export type Transaction = {
+    id: number;
+    category: string;
+    amount: number;
+    date: string;
+    description: string
 }

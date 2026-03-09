@@ -1,9 +1,9 @@
-import Dashboard from '@/components/Dashboard/Dashboard'
+import DashboardPage from "@/components/Dashboard/DashboardPage"
 
 const Page = () => {
     return (
-        <div className='font-poppins'>
-            <Dashboard />
+        <div className='font-poppins w-full'>
+            <DashboardPage />
         </div>
     )
 }

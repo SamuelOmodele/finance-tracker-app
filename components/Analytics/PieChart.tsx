@@ -1,11 +1,13 @@
 "use client";
 
+import { CATEGORY_BG_COLORS } from "@/lib/data";
 import {
   PieChart,
   Pie,
   Cell,
   Tooltip,
   ResponsiveContainer,
+  Legend,
 } from "recharts";
 
 type DataItem = {
@@ -17,52 +19,50 @@ interface Props {
   data: DataItem[];
 }
 
-const COLORS = [
-  "#6DD385",
-  "#2868FF",
-  "#FAC25F",
-  "#8C78E7",
-];
+type PieLabelProps = {
+  value?: number;
+};
 
-export default function SpendingPieChart({ data }: Props) {
+export default function AnalyticsPieChart({ data }: Props) {
 
-  const renderCustomizedLabel = (entry: any) => {
+  const renderCustomizedLabel = ({ value }: PieLabelProps) => {
     const total = data.reduce((sum, item) => sum + item.value, 0);
 
-    if (total === 0) return '0%';
+    if (!value || total === 0) return "0%";
 
-    const percentValue = (entry.value / total) * 100;
+    const percentValue = (value / total) * 100;
     const percent = percentValue.toFixed(1);
 
-    if (percentValue < 5) return '';
+    if (percentValue < 5) return "";
 
     return `${percent}%`;
   };
 
   return (
-    <div className="w-full h-70">
+    <div className="w-full h-75 text-sm">
       <ResponsiveContainer>
         <PieChart>
           <Pie
             data={data}
             cx="50%"
             cy="50%"
-            innerRadius={50}
-            outerRadius={80}
+            innerRadius={60}
+            outerRadius={100}
             paddingAngle={2}
             dataKey="value"
             label={renderCustomizedLabel}
             labelLine={false}
           >
-            {data.map((_, index) => (
+            {data.map((item, index) => (
               <Cell
                 key={`cell-${index}`}
-                fill={COLORS[index % COLORS.length]}
+                fill={CATEGORY_BG_COLORS[item.name]}
               />
             ))}
           </Pie>
 
           <Tooltip />
+          <Legend />
         </PieChart>
       </ResponsiveContainer>
     </div>
