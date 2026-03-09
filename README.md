@@ -58,7 +58,7 @@ The major challenge I faced was Managing the global application state for financ
 ---------------
 TIME SPENT
 ---------------
-Approximately 15 hours were spent building this project, including:
+Approximately 15 hours were spent building this project.
 
 
 
